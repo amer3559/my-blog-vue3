@@ -8,6 +8,16 @@ const routes = [
     component: HomeView,
   },
   {
+    path: "/landing-page",
+    name: "LandingPage",
+    component: import("@/views/LandingPage.vue"),
+  },
+  {
+    path: "/dashboard-page",
+    name: "DashboardPage",
+    component: import("@/views/DashboardPage.vue"),
+  },
+  {
     path: "/test",
     name: "test",
     component: () => import("@/views/TestView.vue"),
