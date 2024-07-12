@@ -1,6 +1,7 @@
 <template>
-  <nav class="navbar navbar-expand-lg bg-body-tertiary box-shadow-dark">
-    <div class="container-fluid">
+  <!-- Responsive navbar-->
+  <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <div class="container">
       <router-link :to="{ name: 'home' }" class="navbar-brand"
         >My Blog</router-link
       >
@@ -15,30 +16,33 @@
       >
         <span class="navbar-toggler-icon"></span>
       </button>
-
       <div class="collapse navbar-collapse" id="navbarSupportedContent">
-        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-          <li class="nav-item">
-            <router-link
-              :to="{ name: 'LandingPage' }"
-              class="nav-link"
-              aria-current="page"
-              >Posts</router-link
-            >
-          </li>
-          <li class="nav-item">
-            <router-link
-              :to="{ name: 'DashboardPage' }"
-              class="nav-link"
-              aria-current="page"
-              >Dashboard</router-link
-            >
-          </li>
-          <li class="nav-item">
-            <router-link to="/test" class="nav-link">Test</router-link>
+        <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+          <li
+            class="nav-item"
+            v-for="route in visibaleRoutes"
+            :key="route.path"
+          >
+            <router-link :to="{ name: route.name }" class="nav-link"
+              >{{ route.meta.title }}
+            </router-link>
           </li>
         </ul>
       </div>
     </div>
   </nav>
 </template>
+
+<script>
+export default {
+  name: "AppNav",
+  computed: {
+    visibaleRoutes() {
+      return this.$router.options.routes.filter((route) => route.meta.visibale);
+    },
+  },
+  mounted() {
+    console.log(this.visibaleRoutes);
+  },
+};
+</script>
