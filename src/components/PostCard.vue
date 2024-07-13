@@ -1,19 +1,35 @@
 <template>
-  <h2>PostCard Component massage : {{ msg }}</h2>
+  <div class="card mb-4">
+    <a href="#!"
+      ><img
+        class="card-img-top"
+        src="https://dummyimage.com/850x350/dee2e6/6c757d.jpg"
+        alt="..."
+    /></a>
+    <div class="card-body">
+      <div class="small text-muted">Views : {{ post.views }}</div>
+      <h2 class="card-title">{{ post.title }}</h2>
+      <p class="card-text">
+        {{ post.body }}
+      </p>
+      <a class="btn btn-primary" href="#!">Read more →</a>
+    </div>
+  </div>
 </template>
 
 <script>
 export default {
-  name: "PostCard Component",
+  name: "PostCard",
   props: {
-    msg: String,
+    post: {
+      type: Object,
+      required: true,
+    },
+  },
+  created() {
+    console.log(this.post);
   },
 };
 </script>
 
-<!-- Add "scoped" attribute to limit CSS to this component only -->
-<style scoped lang="scss">
-h2 {
-  color: #f00;
-}
-</style>
+<style scoped lang="scss"></style>

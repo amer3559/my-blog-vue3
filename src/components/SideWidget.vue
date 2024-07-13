@@ -1,6 +1,6 @@
 <template>
   <!-- Side widgets-->
-  <div class="col-lg-4">
+  <div class="col-lg-12">
     <!-- Search widget-->
     <div class="card mb-4">
       <div class="card-header">Search</div>
