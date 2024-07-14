@@ -12,7 +12,7 @@
           <!-- Blog entries-->
           <div class="col-lg-8">
             <!-- Featured blog post-->
-            <PostCard :post="posts[0]" />
+            <!-- <PostCard :post="posts[0]" /> -->
           </div>
           <div class="col-lg-4">
             <!-- Side widgets-->
@@ -23,7 +23,7 @@
         <div class="row">
           <div class="col-lg-4" v-for="post in nestedPosts" :key="post.id">
             <!-- Blog post-->
-            <PostCard :post="post" />
+            <!-- <PostCard :post="post" /> -->
           </div>
         </div>
         <!-- Pagination-->
@@ -40,7 +40,7 @@
 import PageHeader from "@/components/PageHeader.vue";
 import SideWidget from "@/components/SideWidget.vue";
 import PaginationComponet from "@/components/PaginationComponet.vue";
-import PostCard from "@/components/PostCard.vue";
+// import PostCard from "@/components/PostCard.vue";
 
 export default {
   name: "HomeView",
@@ -48,9 +48,8 @@ export default {
     PageHeader,
     SideWidget,
     PaginationComponet,
-    PostCard,
+    // PostCard,
   },
-
   data() {
     return {
       posts: this.$store.state.posts.posts || [],
@@ -68,7 +67,6 @@ export default {
   },
   async created() {
     await this.fetchPosts();
-    console.log(this.posts);
   },
 };
 </script>
