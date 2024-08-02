@@ -1,55 +1,31 @@
-<template>
-  <!-- Responsive navbar-->
-  <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-    <div class="container">
-      <router-link :to="{ name: 'home' }" class="navbar-brand"
-        >My Blog</router-link
-      >
-      <button
-        class="navbar-toggler"
-        type="button"
-        data-bs-toggle="collapse"
-        data-bs-target="#navbarSupportedContent"
-        aria-controls="navbarSupportedContent"
-        aria-expanded="false"
-        aria-label="Toggle navigation"
-      >
-        <span class="navbar-toggler-icon"></span>
-      </button>
-      <div class="collapse navbar-collapse" id="navbarSupportedContent">
-        <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
-          <li class="nav-item">
-            <router-link :to="{ name: 'DashboardPage' }" class="nav-link"
-              >Dashboard
-            </router-link>
-          </li>
-          <li class="nav-item">
-            <router-link :to="{ name: 'test' }" class="nav-link"
-              >test
-            </router-link>
-          </li>
-          <!-- <li
-            class="nav-item"
-            v-for="route in visibaleRoutes"
-            :key="route.path"
-          >
-            <router-link :to="{ name: route.name }" class="nav-link"
-              >{{ route.meta.title }}
-            </router-link>
-          </li> -->
-        </ul>
-      </div>
-    </div>
-  </nav>
-</template>
-
 <script>
 export default {
   name: "AppNav",
-  computed: {
-    visibaleRoutes() {
-      return this.$router.options.routes.filter((route) => route.meta.visibale);
-    },
-  },
 };
 </script>
+<template>
+  <!-- Responsive navbar-->
+  <nav class="navbar-container auth-container" ref="navbarContainer">
+    <div class="actions">
+      <!-- v-if="!loginStatus" -->
+      <router-link class="actions-container" :to="{ name: 'LoginSignup' }">
+        <div class="link-with-icon">
+          <FontAwesomeIcon icon="sign-in" />
+          <!-- <i class="fa fa-sign-in" aria-hidden="true"></i> -->
+          <span class="link-title cut-1line">auth</span>
+        </div>
+      </router-link>
+    </div>
+    <div class="prand">
+      <div class="prand-container">
+        <router-link class="link-with-icon" :to="{ name: 'Home' }">
+          <img class="icon-lg logo-icon" src="@/assets/img/me.png" alt="" />
+          <span class="link-title cut-1line">my blog</span></router-link
+        >
+      </div>
+    </div>
+    <div class="settings">
+      <div class="settings-container">setings</div>
+    </div>
+  </nav>
+</template>

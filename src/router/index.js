@@ -1,45 +1,35 @@
 import { createRouter, createWebHistory } from "vue-router";
-import HomeView from "../views/HomeView.vue";
+import HomeView from "../views/home/HomePage.vue";
 
 const routes = [
   {
     path: "/",
-    name: "home",
+    name: "Home",
     component: HomeView,
     meta: {
       title: "Home",
-      visibale: true,
-      layout: "DefaultLayout",
+      visibale: false,
+      layout: "auth",
     },
   },
   {
-    path: "/landing-page",
-    name: "LandingPage",
-    component: () => import("@/views/LandingPage.vue"),
+    path: "/login-signup",
+    name: "LoginSignup",
+    component: () => import("@/views/test/LoginSignup.vue"),
     meta: {
-      title: "Posts",
+      title: "Login",
       visibale: true,
-      layout: "DefaultLayout",
-    },
-  },
-  {
-    path: "/dashboard-page",
-    name: "DashboardPage",
-    component: () => import("@/views/DashboardPage.vue"),
-    meta: {
-      title: "Dashboard",
-      visibale: true,
-      layout: "AuthLayout",
+      layout: "auth",
     },
   },
   {
     path: "/test",
     name: "test",
-    component: () => import("@/views/TestView.vue"),
+    component: () => import("@/views/test/TestView.vue"),
     meta: {
       title: "Test",
       visibale: true,
-      layout: "DefaultLayout",
+      layout: "dashboard",
     },
   },
   {
@@ -49,7 +39,7 @@ const routes = [
     meta: {
       title: "NotFound",
       visibale: false,
-      layout: "DefaultLayout",
+      layout: "auth",
     },
   },
 ];
